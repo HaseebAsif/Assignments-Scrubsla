@@ -215,53 +215,70 @@ const employees = [
   },
 ];
 console.log(employees);
-//Average
+
+// Question No 1 => Average
 const average =
   employees.reduce(function (sum, value) {
     return sum + value.employee_age;
   }, 0) / employees.length;
 console.log(average);
 
-// const highestSalary = employees.reduce((a, b) => {
-//   console.log(a);
-//   console.log(b);
+// Question No 2 =>  Highest Salary
+const highestSalary = employees.reduce(
+  (a, b) => (a.employee_salary > b.employee_salary ? a : b),
+  employees[0]
+);
+console.log(highestSalary.employee_name);
 
-//   if (Math.max(a.employee_salary, b.employee_salary)) return a;
-// }, employees[0]);
-
-// var max = 0;
-// const highestSalary = employees.forEach(
-//   (e) => e.employee_salary > max && (max = e.employee_salary)
-// );
-// console.log(max);
-// const HighestSalaryName = employees.filter((item) => {
-//   return item.employee_name && Math.max(item.employee_salary);
-// });
-
-// const highestSalary = Math.max(...employees.map((x) => x.employee_salary));
-
-// console.log(highestSalary);
-
-// highest to lowest age
+// Question No 3 =>  highest to lowest age
 const ageSort = employees.sort(
   (a, b) => parseFloat(a.employee_age) - parseFloat(b.employee_age)
 );
 
 console.log(ageSort);
 
-// more Then 300k income
+// Question No 4 =>  more Then 300k income
 const moreThen300k = employees.filter((number) => {
   return number.employee_salary > 300000;
 });
 
 console.log(moreThen300k);
+// Question No 5 =>  Highest and Lowest Salary
+const HighestAndLowestSalary = employees.reduce(
+  (a, b) => {
+    let Highest, Lowest;
+    if (a.Highest > b.employee_salary) {
+      Highest = a.Highest;
+    } else {
+      Highest = b.employee_salary;
+    }
+    if (a.Lowest !== 0 && a.Lowest < b.employee_salary) {
+      Lowest = a.Lowest;
+    } else {
+      Lowest = b.employee_salary;
+    }
+    return { Highest, Lowest };
+  },
+  { Highest: 0, Lowest: 0 }
+);
+console.log(HighestAndLowestSalary);
 
-// const HighestAndLowestSalary = employees.reduce(
-//   (a, b) =>
-//     b.employee_salary && {
-//       Lowest: Math.min(b.employee_salary),
-//       Highest: Math.max(b.employee_salary),
-//     },
-//   { Highest: 0, Lowest: 0 }
-// );
-// console.log(HighestAndLowestSalary);
+// Question No 6 =>  Highest Salary in Employees older then 50
+
+const EmployeesOlderThen50 = employees.filter((number) => {
+  return number.employee_age > 50;
+});
+const highestSalaryOlderThen50 = EmployeesOlderThen50.reduce(
+  (a, b) => (a.employee_salary > b.employee_salary ? a : b),
+  employees
+);
+console.log(highestSalaryOlderThen50.employee_salary);
+
+// Question No 7 =>  Two New Fields for First Name and Last Name
+const firstName = employees.map((item) => {
+  return item.employee_name.split(" ").slice(0, -1).join(" ");
+});
+
+const lastName = employees.map((item) => {
+  return item.employee_name.split(" ").slice(-1).join(" ");
+});
