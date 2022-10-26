@@ -275,10 +275,11 @@ const highestSalaryOlderThen50 = EmployeesOlderThen50.reduce(
 console.log(highestSalaryOlderThen50.employee_salary);
 
 // Question No 7 =>  Two New Fields for First Name and Last Name
-const firstName = employees.map((item) => {
-  return item.employee_name.split(" ").slice(0, -1).join(" ");
-});
 
-const lastName = employees.map((item) => {
-  return item.employee_name.split(" ").slice(-1).join(" ");
-});
+const twoColumns = employees.map((obj) => ({
+  ...obj,
+  employee_firstName: `${obj.employee_name.split(" ").slice(0, -1).join(" ")}`,
+  employee_secondName: `${obj.employee_name.split(" ").slice(-1).join(" ")}`,
+}));
+
+console.log(twoColumns);
