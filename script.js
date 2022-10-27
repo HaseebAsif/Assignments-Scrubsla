@@ -283,3 +283,34 @@ const twoColumns = employees.map((obj) => ({
 }));
 
 console.log(twoColumns);
+
+// Assignment 5
+
+let enterEventCount = 0;
+let leaveEventCount = 0;
+const mouseTarget = document.getElementById("mouseTarget");
+const unorderedList = document.getElementById("unorderedList");
+
+mouseTarget.addEventListener("mouseenter", (e) => {
+  enterEventCount++;
+  addListItem(`Mouse Entered ${enterEventCount}.`);
+});
+
+mouseTarget.addEventListener("mouseleave", (e) => {
+  leaveEventCount++;
+  addListItem(`Mouse Left ${leaveEventCount}.`);
+});
+
+function addListItem(text) {
+  // Create a new text node using the supplied text
+  const newTextNode = document.createTextNode(text);
+
+  // Create a new li element
+  const newListItem = document.createElement("li");
+
+  // Add the text node to the li element
+  newListItem.appendChild(newTextNode);
+
+  // Add the newly created list item to list
+  unorderedList.appendChild(newListItem);
+}
