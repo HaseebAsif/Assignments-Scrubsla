@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <input
       type="text"
@@ -18,6 +20,20 @@
     <ul id="unorderedList">
       <li>No events yet!</li>
     </ul>
+    <div class="container">
+      <input type="number" name="" id="input1" />
+      <input type="number" name="" id="input2" />
+      <p id="sum"></p>
+      <button onclick="add()">Add</button> <br />
+    </div>
+    <button onclick="increment()" id="increment">Button Clicked</button><br />
+    <div class="todolist">
+      <h2>Todo List</h2>
+      <input type="text" name="" id="todo" /><br />
+
+      <button onclick="item()" id="myBtn">Add Item</button>
+      <ul id="itemList"></ul>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>

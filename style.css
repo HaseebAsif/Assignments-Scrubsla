@@ -1,0 +1,48 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding-top: 20px;
+  width: fit-content;
+  background-color: rgb(47, 88, 123);
+  margin: auto;
+  color: white;
+  font-size: 18px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+input {
+  height: 37px;
+  width: 450px;
+  padding-left: 10px;
+  font-size: 14px;
+}
+button {
+  background-color: black;
+  color: white;
+  height: 45px;
+  cursor: pointer;
+  padding: 0 20px;
+  width: fit-content;
+  font-size: 16px;
+}
+.todolist {
+  display: flex;
+  flex-direction: column;
+}
+ul {
+  list-style-type: none;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
