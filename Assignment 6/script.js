@@ -55,3 +55,19 @@ function changecompany(car) {
   car.company = "Tesla";
 }
 changecompany(myVehicle);
+
+class newVehicle extends vehicle {
+  constructor(color, price, company, make) {
+    super(color, price, company);
+    this.make = make;
+  }
+}
+let myVehicle1 = new newVehicle("red", "100", "Tesla", "2020");
+document.getElementById("demo").innerHTML =
+  myVehicle1.color +
+  " " +
+  myVehicle1.price +
+  " " +
+  myVehicle1.company +
+  " " +
+  myVehicle1.make;
