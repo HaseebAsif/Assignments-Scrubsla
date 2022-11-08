@@ -1,24 +1,57 @@
-const division = (a, b) => {
-  var c = a / b;
-  return c;
-};
-console.log(division(6, 2));
-
-const multiplication = (a, b) => {
-  var c = a * b;
+// Question 2
+const division = async (a, b) => {
+  var c = (await a) / (await b);
   return c;
 };
 
-console.log(multiplication(6, 2));
-
-const subtract = (a, b) => {
-  var c = a - b;
+const multiplication = async (a, b) => {
+  var c = (await a) * (await b);
   return c;
 };
-console.log(subtract(6, 2));
 
-const add = (a, b) => {
-  var c = a + b;
+const subtract = async (a, b) => {
+  var c = (await a) - (await b);
   return c;
 };
-console.log(add(6, 2));
+
+const add = async (a, b) => {
+  var c = (await a) + (await b);
+  return c;
+};
+
+const result = async () => {
+  const result = await add(
+    2,
+    await subtract(await multiplication(3, 7), await division(2, 5))
+  );
+  console.log(result);
+};
+result();
+
+// Question 3
+class vehicle {
+  constructor(color, price, company) {
+    this.color = color;
+    this.price = price;
+    this.company = company;
+  }
+}
+
+let myVehicle = new vehicle("red", "90k$", "Ford");
+document.getElementById("demo").innerHTML =
+  myVehicle.color + " " + myVehicle.price + " " + myVehicle.company;
+
+function changecolor(car) {
+  car.color = "blue";
+}
+changecolor(myVehicle);
+
+function changeprice(car) {
+  car.price = "4k$";
+}
+changeprice(myVehicle);
+
+function changecompany(car) {
+  car.company = "Tesla";
+}
+changecompany(myVehicle);
